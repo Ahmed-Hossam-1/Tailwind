@@ -1,13 +1,11 @@
-import { Outlet } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Features from "../components/Features";
+import Landing from "../components/Landing";
 
 const Home = () => {
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+      <Landing />
+      <Features />
     </>
   );
 };

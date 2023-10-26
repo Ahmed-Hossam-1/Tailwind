@@ -1,7 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [links, setLinks] = useState(["Features", "Team", "Signin"]);
   const headerRef = useRef();
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -19,36 +20,22 @@ const Header = () => {
       ref={headerRef}
       className="pt-[72px] fixed top-0 left-0 w-full z-50 transition-all deuration-200"
     >
-      <div className="container mx-auto px-[15px] flex justify-between items-center">
+      <div className="container flex justify-between items-center sm:gap-0 flex-col gap-8 sm:flex-row">
         <Link href="/">
           <img src="/src/assets/images/logo.svg" alt="logo-img" />
         </Link>
         <nav>
-          <ul className="flex items-center gap-[50px]">
-            <li>
-              <Link
-                className="text-white opacity-[0.9] hover:opacity-[1] hover:underline transition-opacity duration-200"
-                to="/features"
-              >
-                Features
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="text-white opacity-[0.9] hover:opacity-[1] hover:underline transition-opacity duration-200"
-                to="/team"
-              >
-                Team
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="text-white opacity-[0.9] hover:opacity-[1] hover:underline transition-opacity duration-200"
-                to="/signin"
-              >
-                Signin
-              </Link>
-            </li>
+          <ul className="flex items-center gap-[50px] ">
+            {links.map((link) => (
+              <li key={link}>
+                <Link
+                  to={`/${link.toLowerCase()}`}
+                  className={`${link} opacity-[0.9] hover:opacity-[1] text-white font-normal hover:underline duration-200 transition-all`}
+                >
+                  {link}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
