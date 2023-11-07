@@ -15,7 +15,7 @@ const App = () => {
         {/* <Route
           path="/*"
           element={
-            <h1 className="absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] text-[70px] font-bold text-white">
+            <h1 className="absolute h-[100vh] top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] text-[50px] font-bold text-white">
               NOT FOUND
             </h1>
           }
